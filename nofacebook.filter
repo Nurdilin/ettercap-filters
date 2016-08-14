@@ -1,0 +1,8 @@
+#if (search(DECODED.data, "porn")) {
+if (search(DATA.data, "porn")) {
+   msg("some one is about to fap...Not under my watch\n");
+   drop();
+   kill();
+}
+
+

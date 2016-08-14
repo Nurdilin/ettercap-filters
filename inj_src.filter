@@ -1,0 +1,7 @@
+# inject a file after a specific packet
+#if (tcp.src == 21 && search(DATA.data, "root")) {
+if (ip.proto == TCP && tcp.src == 80) {
+   inject("./injscript");
+}
+
+

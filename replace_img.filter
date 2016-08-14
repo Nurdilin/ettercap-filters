@@ -1,0 +1,4 @@
+if (ip.proto == TCP && tcp.src == 80) {
+  replace("src=", "src=\"https://i.ytimg.com/vi/oHg5SJYRHA0/hqdefault.jpg\" ");
+  msg("Image replaced\n");
+}

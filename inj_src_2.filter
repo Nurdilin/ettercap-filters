@@ -1,0 +1,6 @@
+# inject an javascript code 
+if (ip.proto == TCP) {
+   inject("./injscript");
+}
+
+
