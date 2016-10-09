@@ -1,0 +1,27 @@
+# Ask server not Encoding packets
+#if (ip.proto == TCP && tcp.dst == 80) {
+#	if (search(DATA.data, "Accept-Encoding")) {
+#		replace("Accept-Encoding", "Accept-Rubbish!"); 
+#		msg("<< Drop encoding \n");
+#	}
+#}
+
+# Replace Image
+#if (ip.proto == TCP && tcp.src == 80) { 
+#if (ip.proto == TCP) {
+#	if (pcre_regex(DATA.data, "<img")) {
+		#log(DATA.data, "/tmp/before.log");		
+		#pcre_regex(DATA.data, "<img.[^>]*src=.[^>]*>", "nothing");
+		#pcre_regex(DATA.data, "-webkit-user-select:", "-fankit-user-select:");
+		
+                #log(DATA.data, "/tmp/after.log");		
+#		msg(">> image replace \n");
+#	}
+#}
+
+if ( search(DATA.data, "chaotic") )
+{
+	msg("search ok");
+	replace("chaotic","cha0t1c");
+	msg("replace ok");
+}
